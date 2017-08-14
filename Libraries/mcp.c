@@ -34,7 +34,6 @@ void pol(unsigned char port, unsigned char val) {
 	i2c_stop();
 }
 
-
 unsigned char read_register(unsigned char addr) {
 	op(0);
 	i2c_put_byte(addr);
@@ -47,7 +46,6 @@ unsigned char read_register(unsigned char addr) {
 	return x;
 }
 
-
 void mcp_pin_as_output(unsigned char port, unsigned char pin) {
 	unsigned char current_pins = read_register(port);
 	op(0);
@@ -59,7 +57,6 @@ void mcp_pin_as_output(unsigned char port, unsigned char pin) {
 
 	current_pins = read_register(port);
 }
-
 
 void mcp_set_pullup(unsigned char port, unsigned char pin, unsigned char val) {
 	unsigned char current_pins = read_register(0x0C + port);
@@ -81,7 +78,7 @@ void mcp_pin_as_input(unsigned char port, unsigned char pin) {
 	i2c_ack_get();
 	i2c_put_byte(current_pins | (1 << pin));
 	i2c_ack_get();
-	i2c_stop(); 
+	i2c_stop();
 }
 
 void mcp_set_pin(unsigned char port, unsigned char pin, unsigned char s) {
