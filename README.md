@@ -16,4 +16,4 @@ make run
 
 ## Pictures & Videos
 
-<video src="Readme/example.mp4" width="360" height="640" controls preload></video>
+Coming soon(ish)
